@@ -5,11 +5,7 @@ from lxml import etree
 from fake_useragent import UserAgent
 import json
 
-# https://m.weibo.cn/api/container/getIndex?type=uid&value=1259110474 个人信息
-# https://m.weibo.cn/api/container/getIndex?type=uid&value='+id+'&containerid='+get_containerid(url)+'&page='+str(i)  #微博个人首页
-# https://m.weibo.cn/api/container/getIndex?type=uid&value=1259110474&containerid=2302831259110474&page=1
-# https://m.weibo.cn/p/index?containerid=231051_-_fansrecomm_-_1259110474&luicode=10000011&lfid=1005051259110474
-# https://m.weibo.cn/api/container/getIndex?containerid=2304131259110474_-_WEIBO_SECOND_PROFILE_WEIBO&luicode=10000011&lfid=2302831259110474&page_type=03&page=1 #微博内容
+
 
 proxies=json.load(open("json/proxies.json", 'r', encoding='utf-8'))
 
