@@ -290,6 +290,15 @@ class wbvpageinfo(threading.Thread):
              "forwards": self.forwards, #pymongo.errors.ServerSelectionTimeoutError: No servers found yet
              }
         )
+        links.remove(self.userid)
+        self.updateuserids()
+
+    def updateuserids(self):
+            userfile = open('usersnew.json', 'w', encoding='utf-8')
+            json.dump(links, userfile, indent=4, sort_keys=False, ensure_ascii=False)
+            userfile.close()
+
+
 def start(threadnum):
     try:
         cookiefile = open('cookies.json', 'r', encoding='utf-8')
