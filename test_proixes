@@ -1,0 +1,33 @@
+import requests,time,json
+proxies=json.load(open("json/proxies.json", 'r', encoding='utf-8'))
+#proxy2={"https":"socks-cla.abuyun.com:8030"}
+proxys_n=[
+{"https": "39.107.80.148:80"},
+{"https": "39.107.108.59:80"},
+{"https": "39.106.187.82:80"},
+{"https": "39.106.219.151:80"},
+{"https": "39.106.215.1:80"},
+{"https": "47.93.221.94:80"},
+{"https": "39.107.119.37:80"},
+{"https": "39.107.103.68:80"},
+]
+wbtvurl="https://weibo.com"
+def  judegproxy():
+    proxy={'https': '60.205.185.53:80'}
+    for proxy in proxys_n:
+     try:
+            r=requests.get(wbtvurl,proxies=proxy,timeout=3.05)
+            print(r.status_code)
+     except:
+            time.sleep(3)
+            try:
+                r = requests.get(wbtvurl, proxies=proxy, timeout=3.05)
+                print(r.status_code)
+            except:
+                time.sleep(3)
+                try:
+                    r = requests.get(wbtvurl, proxies=proxy, timeout=3.05)
+                    print(r.status_code)
+                except:
+                    print(proxy)
+judegproxy()
